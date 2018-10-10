@@ -1,3 +1,13 @@
+upstream up {
+  server UPSTREAM;
+  keepalive 32;
+}
+
+map $http_upgrade $connection_upgrade {
+  default upgrade;
+  '' '';
+}
+
 server {
   listen 443 ssl http2;
   listen [::]:443 ssl http2;
@@ -28,7 +38,7 @@ server {
     proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header Host $host;
     proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
+    proxy_set_header Connection $connection_upgrade;
     proxy_pass http://up;
   }
 }
