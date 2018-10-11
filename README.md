@@ -3,7 +3,7 @@
 ![Docker Build Status](https://img.shields.io/docker/build/farwayer/nginx-proxy.svg)
 ![MicroBadger Size](https://img.shields.io/microbadger/image-size/farwayer/nginx-proxy.svg)
 
-Simple out-of-box nginx proxy with **Let's Encrypt** integration:
+Simple out-of-the-box nginx proxy with **Let's Encrypt** integration:
 
 - auto request and renew https certificate
 - **http** and **websocket** upstream support
