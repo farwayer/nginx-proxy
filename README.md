@@ -1,7 +1,6 @@
 ## nginx-proxy
 
-![Docker Build Status](https://img.shields.io/docker/build/farwayer/nginx-proxy.svg)
-![MicroBadger Size](https://img.shields.io/microbadger/image-size/farwayer/nginx-proxy.svg)
+[![Docker Build Status](https://img.shields.io/docker/build/farwayer/nginx-proxy.svg)](https://hub.docker.com/r/farwayer/nginx-proxy/) [![MicroBadger Size](https://img.shields.io/microbadger/image-size/farwayer/nginx-proxy.svg)](https://hub.docker.com/r/farwayer/nginx-proxy/)
 
 Simple out-of-the-box nginx proxy with **Let's Encrypt** integration:
 
