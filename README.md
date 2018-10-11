@@ -16,8 +16,8 @@ Simple out-of-box nginx proxy with **Let's Encrypt** integration:
 
 ### envs
 
-- DOMAIN (required)
-- UPSTREAM (default `api:8080`)
+- `DOMAIN` (required)
+- `UPSTREAM` (default `api:8080`)
 
 ### docker
 
