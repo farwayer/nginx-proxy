@@ -2,7 +2,7 @@ FROM alpine as dhgen
 RUN apk add --update --no-cache openssl
 RUN openssl dhparam -dsaparam -out /dhparam.pem 2048
 
-FROM nginx:alpine
+FROM nginx:1.5.8-alpine
 LABEL maintainer="farwayer@gmail.com"
 RUN apk add --update --no-cache acme-client
 COPY conf.d /etc/nginx/conf.d
