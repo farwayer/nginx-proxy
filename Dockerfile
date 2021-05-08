@@ -1,12 +1,13 @@
 FROM alpine as dhgen
-RUN apk add --update --no-cache openssl
-RUN openssl dhparam -dsaparam -out /dhparam.pem 2048
+RUN apk add --update --no-cache libressl
+RUN libressl dhparam -dsaparam -out /dhparam.pem 4096
 
-FROM nginx:1.15.8-alpine
+FROM alpine:edge
 LABEL maintainer="farwayer@gmail.com"
-RUN apk add --update --no-cache acme-client
-COPY conf.d /etc/nginx/conf.d
+RUN apk add -X http://dl-cdn.alpinelinux.org/alpine/edge/testing --update --no-cache acme-client nginx nginx-mod-http-brotli
 COPY --from=dhgen /dhparam.pem /etc/nginx
+COPY http.d /etc/nginx/http.d
+COPY acme-client.conf /etc
 COPY acme.sh /etc/periodic/weekly
 COPY start.sh /
 VOLUME /etc/ssl/acme

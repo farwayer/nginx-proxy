@@ -15,14 +15,14 @@ Simple out-of-the-box nginx proxy with **Let's Encrypt** integration:
 
 ### envs
 
-- `DOMAIN` (required)
+- `DOMAINS` (required)
 - `UPSTREAM` (default `api:8080`)
 
 ### docker
 
 ```bash
 docker run -it -p 80:80 -p 443:443 \
- -e DOMAIN=my.domain.com -e UPSTREAM=1.2.3.4:8080 \
+ -e DOMAINS=domain.com,www.domain.com,my.domain.com -e UPSTREAM=1.2.3.4:8080 \
  farwayer/nginx-proxy 
 ```
 
@@ -40,6 +40,6 @@ docker run -it -p 80:80 -p 443:443 \
       depends_on: [api]
       ports: ['80:80', '443:443']
       environment:
-        - DOMAIN=my.domain.com # required
+        - DOMAINS=domain.com,www.domain.com,my.domain.com # required
         - UPSTREAM=api:1234 # api:8080 by default 
 ```
